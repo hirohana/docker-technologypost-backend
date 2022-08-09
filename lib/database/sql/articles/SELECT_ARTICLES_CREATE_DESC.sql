@@ -9,9 +9,7 @@ SELECT
   u.id AS user_id,
   u.username,
   u.photo_url AS user_photo_url,
-  GROUP_CONCAT(DISTINCT c.name) AS category_name,
-  aco.comment,
-  aco.created_at AS comment_created_at
+  GROUP_CONCAT(DISTINCT c.name) AS category_name
 FROM
   (SELECT * FROM articles WHERE public = 1 ORDER BY created_at DESC LIMIT 6 OFFSET ?) AS a
   LEFT OUTER JOIN
